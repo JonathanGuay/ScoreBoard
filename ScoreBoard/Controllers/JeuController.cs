@@ -5,6 +5,6 @@ namespace ScoreBoard.Controllers
 {
     public class JeuController : Controller
     {
-
+        
     }
 }

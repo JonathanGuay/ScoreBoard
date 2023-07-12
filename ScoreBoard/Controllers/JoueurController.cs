@@ -7,7 +7,7 @@ namespace ScoreBoard.Controllers
     {
         public JoueurController()
         {
-
+            
         }
     }
 }
