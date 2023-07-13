@@ -18,17 +18,23 @@ namespace ScoreBoard.Models
 
         public Joueur? GetJoueur(int id)
         {
-            throw new NotImplementedException();
+            return _scoreboardDbContext.Joueurs.Include(g => g.Jeux).FirstOrDefault(g => g.Id == id);
         }
 
         public void Modifier(Joueur joueur)
         {
-            throw new NotImplementedException();
+            _scoreboardDbContext.Joueurs.Update(joueur);
+            _scoreboardDbContext.SaveChanges();
         }
 
         public void Supprimer(int id)
         {
-            throw new NotImplementedException();
+            Joueur joueur = _scoreboardDbContext.Joueurs.FirstOrDefault(g => g.Id == id);
+            if (joueur != null)
+            {
+                _scoreboardDbContext.Joueurs.Remove(GetJoueur(id));
+                _scoreboardDbContext.SaveChanges();
+            }
         }
     }
 }
